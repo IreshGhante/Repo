@@ -1,10 +1,40 @@
 spring:
-  cloud:
-    config:
-      server:
-        git:
-          uri: https://github.com/IreshGhante/Properties.git
-          clone-on-start: true
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/usermanagement
+    username: root
+    password: Iresh@123
+    
+  jpa:
+    properties:
+      hibernate:
+        show-sql: true
+        format-sql: true
+        hbm2ddl:
+          auto: update
+      
+  boot:
+    admin:
+      client:
+        url: http://localhost:1111/
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: cab128864@gmail.com
+    password: anzk neua plwp vquz
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+      
 management:
-  security:
-    enabled:false
+  endpoints:
+    web:
+      exposure:
+        include: '*'
